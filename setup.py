@@ -44,7 +44,7 @@ setup(
         'Programming Language :: Python :: 3.5',
     ],
 
-    keywords='cli foundation sync symlink command line interface',
+    keywords='cli foundation sync symlink command line interface cement',
 
     packages=find_packages(exclude=['contrib', 'docs', 'tests']),
 

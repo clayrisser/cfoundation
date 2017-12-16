@@ -1,4 +1,4 @@
-NAME = 'foundation'
+NAME = 'cfoundation'
 
 AUTHOR = 'Jam Risser'
 

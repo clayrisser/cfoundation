@@ -28,5 +28,5 @@ publish: dist
 
 .PHONY: clean
 clean:
-	-@rm -rf ./env ./dist ./build ./dotcli.egg-info ./*/*.pyc ./*/*/*.pyc &>/dev/null || true
+	-@rm -rf ./env ./dist ./build ./*.egg-info ./*/*.pyc ./*/*/*.pyc &>/dev/null || true
 	@echo cleaned

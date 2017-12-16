@@ -1,5 +1,5 @@
 from cement.core.controller import expose
-from foundation import Controller
+from cfoundation import Controller
 
 class BaseController(Controller):
     class Meta:

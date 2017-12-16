@@ -4,7 +4,7 @@ from controllers import (
     BaseController,
     CleanController
 )
-from foundation import register
+from cfoundation import register
 
 class App(CementApp):
     class Meta:

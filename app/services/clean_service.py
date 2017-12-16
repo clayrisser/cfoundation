@@ -1,4 +1,4 @@
-from foundation import Service
+from cfoundation import Service
 from pydash import _
 
 class CleanService(Service):
