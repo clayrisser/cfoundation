@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 from codecs import open
 from os import path
-from dot import config
+from app import config
 
 here = path.abspath(path.dirname(__file__))
 
