@@ -1,6 +1,7 @@
-from cement.core.controller import CementBaseController, expose
+from cement.core.controller import expose
+from foundation import Controller
 
-class BaseController(CementBaseController):
+class BaseController(Controller):
     class Meta:
         label = 'base'
         description = 'A foundation made with cement'

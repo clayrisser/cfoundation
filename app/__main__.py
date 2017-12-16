@@ -4,6 +4,7 @@ from controllers import (
     BaseController,
     CleanController
 )
+from foundation import register
 
 class App(CementApp):
     class Meta:
@@ -15,7 +16,7 @@ class App(CementApp):
 
 def main():
     with App() as app:
-        print(BANNER)
+        register(app)
         app.run()
 
 if __name__ == '__main__':

@@ -1,7 +1,7 @@
-from cement.core.controller import CementBaseController, expose
-from app.services import clean_service
+from cement.core.controller import expose
+from foundation import Controller
 
-class CleanController(CementBaseController):
+class CleanController(Controller):
     class Meta:
         label = 'clean'
         description = 'Clean dotfiles'
@@ -10,4 +10,4 @@ class CleanController(CementBaseController):
 
     @expose(hide=True)
     def default(self):
-        return clean_service.clean()
+        return self.app.services.clean_service.clean()

@@ -1,2 +1,6 @@
-def clean():
-    print('Cleaning . . .')
+from foundation import Service
+from pydash import _
+
+class CleanService(Service):
+    def clean(self):
+        print('Cleaning . . .')
