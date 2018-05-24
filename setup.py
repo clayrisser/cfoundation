@@ -1,32 +1,38 @@
-from setuptools import setup, find_packages
 from codecs import open
 from os import path
-from app import config
+from setuptools import setup, find_packages
+from subprocess import check_output
 
 here = path.abspath(path.dirname(__file__))
+
+check_output(
+    'pandoc --from=markdown --to=rst --output=' + path.join(here, 'README.rst') + ' ' + path.join(here, 'README.md'),
+    shell=True
+)
 
 with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 install_requires = list()
-with open(path.join(here, 'requirements.txt'), encoding='utf-8') as f:
+with open(path.join(here, 'requirements.txt'), 'r', encoding='utf-8') as f:
     for line in f.readlines():
         install_requires.append(line)
 
+
 setup(
-    name=config.NAME,
+    name='cfoundation',
 
-    version=config.VERSION,
+    version='0.2.0',
 
-    description='A foundation made with cement',
+    description='Framework for building command line interfaces built on top of cement',
 
     long_description=long_description,
 
-    url='https://github.com/jamrizzi/foundation',
+    url='https://github.com/codejamninja/cfoundation',
 
     author='Jam Risser',
 
-    author_email='jam@jamrizzi.com',
+    author_email='jam@codejam.ninja',
 
     license='MIT',
 
@@ -44,13 +50,9 @@ setup(
         'Programming Language :: Python :: 3.5',
     ],
 
-    keywords='cli foundation sync symlink command line interface cement',
+    keywords='cli framework command line interface cement terminal',
 
     packages=find_packages(exclude=['contrib', 'docs', 'tests']),
 
-    install_requires=install_requires,
-
-    entry_points = {
-        'console_scripts': [config.NAME + '=app.__main__:main'],
-    }
+    install_requires=install_requires
 )

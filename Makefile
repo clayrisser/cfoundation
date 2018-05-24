@@ -1,20 +1,35 @@
-SHELL := /bin/bash
 CWD := $(shell pwd)
 
-all: env
+.PHONY: all
+all: clean
 
-start:
-	@python app clean
+.PHONY: start
+start: env
+	@env/bin/python3 example
+
+.PHONY: debug
+debug: env
+	@env/bin/python3 example --debug
+
+.PHONY: install
+install: env
+
+.PHONY: uninstall
+uninstall:
+	-@rm -rf env >/dev/null || true
+
+.PHONY: reinstall
+reinstall: uninstall install
 
 env:
 	@virtualenv env
-	@env/bin/pip install -r ./requirements.txt
-	@echo created virtualenv
+	@env/bin/pip3 install -r requirements.txt
+	@echo ::: ENV :::
 
 .PHONY: freeze
 freeze:
-	@env/bin/pip freeze > ./requirements.txt
-	@echo froze requirements
+	@env/bin/pip3 freeze > requirements.txt
+	@echo ::: FREEZE :::
 
 dist: env
 	@python setup.py sdist
@@ -28,5 +43,5 @@ publish: dist
 
 .PHONY: clean
 clean:
-	-@rm -rf ./env ./dist ./build ./*.egg-info ./*/*.pyc ./*/*/*.pyc &>/dev/null || true
-	@echo cleaned
+	-@rm -rf */__pycache__ */*/__pycache__ README.rst >/dev/null || true
+	@echo ::: CLEAN :::

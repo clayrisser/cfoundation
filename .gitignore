@@ -102,3 +102,6 @@ ENV/
 \#*\#
 .\#*
 *~
+
+# Application
+README.rst
