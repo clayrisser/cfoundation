@@ -18,11 +18,10 @@ with open(path.join(here, 'requirements.txt'), 'r', encoding='utf-8') as f:
     for line in f.readlines():
         install_requires.append(line)
 
-
 setup(
     name='cfoundation',
 
-    version='0.2.0',
+    version='0.2.1',
 
     description='Framework for building command line interfaces built on top of cement',
 
