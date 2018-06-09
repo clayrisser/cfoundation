@@ -21,7 +21,7 @@ def create_app(name=None, controllers=None, services=None, conf={}):
 
     class App(CementApp):
         class Meta:
-            label = 'forkbuntu'
+            label = name
             base_controller = controllers.Base
             handlers = _load_controllers(controllers)
 

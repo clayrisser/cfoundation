@@ -41,6 +41,14 @@ publish: dist
 	@twine upload dist/*
 	@echo published
 
+.PHONY: link
+link: install
+	@pip3 install -e .
+
+.PHONY: unlink
+unlink: install
+	@rm -r $(shell find . -name '*.egg-info')
+
 .PHONY: clean
 clean:
 	-@rm -rf */__pycache__ */*/__pycache__ README.rst >/dev/null || true

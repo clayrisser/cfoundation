@@ -21,7 +21,7 @@ with open(path.join(here, 'requirements.txt'), 'r', encoding='utf-8') as f:
 setup(
     name='cfoundation',
 
-    version='0.2.1',
+    version='0.2.2',
 
     description='Framework for building command line interfaces built on top of cement',
 
