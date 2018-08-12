@@ -1,13 +1,12 @@
 from .logger import setup_logger
 from cement.core.foundation import CementApp
-from halo import Halo
 from munch import munchify
 from os import path
 from pydash import _
 import inspect
 import re
 
-def create_app(name=None, controllers=None, services=None, conf={}):
+def create_app(name=None, controllers=None, services=None, conf={}, **kwargs):
     src_path = path.dirname(path.abspath((inspect.stack()[1])[1]))
     log = setup_logger(path.join(src_path, 'logger.yml'), name=name)
 
@@ -31,8 +30,13 @@ def create_app(name=None, controllers=None, services=None, conf={}):
             self.conf = munchify(conf)
             self.log = log
             self.services = self.__load_services(services)
-            self.spinner = Halo()
             self.src_path = src_path
+            for key, value in kwargs.items():
+                if key is not 'name' \
+                   and key is not 'controllers' \
+                   and key is not 'services' \
+                   and key is not 'conf':
+                    setattr(self, key, value)
 
         def run(self):
             self.log = self._log

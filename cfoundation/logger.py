@@ -17,6 +17,6 @@ def setup_logger(config_path='logging.yml', name=None, level=logging.INFO, key='
     logger = logging.getLogger()
     if name:
         logger = logging.getLogger(name)
-    if _.includes(sys.argv, '--debug') or _.includes(sys.argv, '-d'):
+    if _.includes(sys.argv, '--debug'):
         logger.setLevel(logging.DEBUG)
     return logger
